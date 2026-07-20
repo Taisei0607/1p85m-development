@@ -7,7 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 class PowerSensor:
-    def __init__(self, port = "/dev/ttyACM*", baudrate = 19200, timeout = 1.0):
+    def __init__(self, port = "/dev/ttyACM0", baudrate = 19200, timeout = 1.0):
         self.port = port
         self.baudrate = baudrate
         self.timeout = timeout
@@ -111,7 +111,7 @@ class PowerSensor:
             print(f"Error: Unable to get frequency (Response: {response})")
             return None
 
-    def set_frequency(self, freq_ghz):
+    def set_frequency(self, freq_ghz): # 0.01GHz~26GHz = 0.18GHz~468GHz(18倍の場合)
         command = f"FREQ {freq_ghz:.3f}\n"
         response = self.query(command)
         if response == "OK":

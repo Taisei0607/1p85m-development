@@ -75,12 +75,12 @@ class R_sky:
         try:
             GPIO.setmode(GPIO.BCM)
             GPIO.setwarnings(False)
-            GPIO.output(self.gpio_mag_brake, 1); time.sleep(0.25)
+#           GPIO.output(self.gpio_mag_brake, 1); time.sleep(0.25)
 
             for i in range(1250):
                 sts = GPIO.input(self.gpio_sensor_1)
                 if sts == 0:
-                    print(i+1)
+#                   print(i+1)
                     self.clockwise()
                     continue
                 elif sts == 1:
@@ -89,13 +89,13 @@ class R_sky:
 
             GPIO.output(self.gpio_mag_brake, 0); time.sleep(0.25)
             print("MOVE-R: Complete")
-            GPIO.cleanup()
+#           GPIO.cleanup()
 
             return True
 
         except KeyboardInterrupt:
             print("MOVE-R: Failed")
-            GPIO.cleanup()
+#           GPIO.cleanup()
 
             return False
 
@@ -103,12 +103,12 @@ class R_sky:
         try:
             GPIO.setmode(GPIO.BCM)
             GPIO.setwarnings(False)
-            GPIO.output(self.gpio_mag_brake, 1); time.sleep(0.25)
+#           GPIO.output(self.gpio_mag_brake, 1); time.sleep(0.25)
 
             for i in range(1250):
                 sts = GPIO.input(self.gpio_sensor_2)
                 if sts == 0:
-                    print(-(i+1))
+#                   print(-(i+1))
                     self.counterclockwise()
                     continue
                 elif sts == 1:
@@ -118,13 +118,13 @@ class R_sky:
             GPIO.output(self.gpio_mag_brake, 0); time.sleep(0.25)
 
             print("MOVE-SKY: Complete")
-            GPIO.cleanup()
+#           GPIO.cleanup()
 
             return True
 
         except KeyboardInterrupt:
-            print("MOVE-R: Failed")
-            GPIO.cleanup()
+            print("MOVE-SKY: Failed")
+#           GPIO.cleanup()
 
             return False
 
@@ -147,19 +147,19 @@ class R_sky:
             GPIO.output(self.gpio_mag_brake, 1); time.sleep(0.25)
 
             for i in range(count):
-                print(round(-(i+1)/10, 1))
+#               print(round(-(i+1)/10, 1))
                 self.clockwise()
 
             time.sleep(0.25); GPIO.output(self.gpio_mag_brake, 0)
 
             print("ClockWise %s: Complete"%count)
-            GPIO.cleanup()
+#           GPIO.cleanup()
 
             return True
 
         except KeyboardInterrupt:
             print("ClockWise %s: Failed"%count)
-            GPIO.cleanup()
+#           GPIO.cleanup()
 
             return False
 
@@ -172,16 +172,16 @@ class R_sky:
             count = abs(count)
 
             for i in range(count):
-                print(round(-(i+1)/10, 1))
+#               print(round(-(i+1)/10, 1))
                 self.counterclockwise()
 
             time.sleep(0.25); GPIO.output(self.gpio_mag_brake, 0)
 
             print("CounterClockWise -%s: Complete"%count)
-            GPIO.cleanup()
+#           GPIO.cleanup()
             return True
 
         except KeyboardInterrupt:
             print("ClockWise -%s: Failed" %count)
-            GPIO.cleanup()
+#           GPIO.cleanup()
             return False

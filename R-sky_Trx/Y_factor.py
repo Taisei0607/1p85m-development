@@ -20,7 +20,7 @@ K2450_PORT = 5025 # SCPIのTCPポート
 BIAS_VOLTAGES_MV = [round(v*0.1, 1) for v in range(0, 100)]
 BIAS_VOLTAGES = [mv/1000.0 for mv in BIAS_VOLTAGES_MV]
 # 電流コンプライアンス[A]
-CURRENT_COMPLIANCE = 100e-3 # 100mA
+CURRENT_COMPLIANCE = 100e-3 # 100mA(電流の上限値)
 # MA24126Aパワーセンサ設定
 MA24126A_PORT = "/dev/ttyACM0"
 MA24126A_FREQ_GHZ = 10.0 # 測定周波数[GHz]

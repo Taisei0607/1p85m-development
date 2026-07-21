@@ -11,6 +11,9 @@ class Keysight_FieldFox:
         try:
             self.inst = self.rm.open_resource(resource_name)
             self.inst.timeout = timeout_ms
+            if "SOCKET" in resource_name:
+                self.inst.read_termination = "\n"
+                self.inst.write_termination = "\n"
             idn = self.inst.query("*IDN?").strip()
             log.info(f"Keysight_FieldFoxへの接続成功: {idn}")
         except Exception as e:

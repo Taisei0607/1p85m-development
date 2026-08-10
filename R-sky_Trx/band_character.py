@@ -20,9 +20,9 @@ if __name__ == "__main__":
     ff = FieldFox_Trace(ip=IP_ADDRESS)
 
     try:
-        start_freq = 5.0
-        stop_freq = 9.0
-        points = 401
+        start_freq = int(input("Min frequency: ").strip())
+        stop_freq = int(input("Max frequency: ").strip())
+        points = int(input("Number of points: ").strip())
         print("FieldFoxを初期設定中")
         ff.setup_sa(start_freq_ghz=start_freq, stop_freq_ghz=stop_freq, sweep_points=points)
         time.sleep(1.0)

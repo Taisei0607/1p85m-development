@@ -103,7 +103,7 @@ def plot_results(csv_path: Path, output_png_path: Path):
     ax3.set_ylabel("Y-factor", fontsize=14, color="g")
     ax3.tick_params(axis="y", labelcolor="g", labelsize=12)
 
-    plt.title(f"LO={lo_freq:.0f}GHz, LO_Power={lo_power:.2f}uA, date={timestamp_day}_{timestamp_time}", fontsize=15, pad=15)
+    plt.title(f"LO={lo_freq:.0f}GHz, Power={lo_power:.2f}uA, date={timestamp_day}-{timestamp_time}", fontsize=15, pad=15)
 
     lines = [line_iv, line_phot, line_pcold, line_y]
     labels = [l.get_label() for l in lines]

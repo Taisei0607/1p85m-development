@@ -129,7 +129,7 @@ def run_measurement():
         lo_f_in = input(f"LO周波数 [GHz] (Enterでデフォルト {DEFAULT_LO_FREQ_GHZ:.4f}): ").strip()
         lo_freq_ghz = float(lo_f_in) if lo_f_in else DEFAULT_LO_FREQ_GHZ
 
-        lo_p_in = input(f"LO パワー [μA] (Enterでデフォルト {DEFAULT_LO_POWER_UA:.1f}): ").strip()
+        lo_p_in = input(f"LOパワー [μA] (Enterでデフォルト {DEFAULT_LO_POWER_UA:.1f}): ").strip()
         lo_pwr_ua = float(lo_p_in) if lo_p_in else DEFAULT_LO_POWER_UA
 
         v_min_in = input(f"バイアス電圧の最小値 [mV] (Enterでデフォルト {DEFAULT_V_MIN_MV:.1f}): ").strip()

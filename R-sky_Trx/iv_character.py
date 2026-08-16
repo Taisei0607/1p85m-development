@@ -14,7 +14,7 @@ os.environ["MKL_NUM_THREADS"] = "1"
 
 K2450_IP = "10.167.197.221"
 K2450_PORT = 5025
-DEFAULT_CURRENT_COMPLIANCE = 100e-3 # 100mA
+DEFAULT_CURRENT_COMPLIANCE = 50e-3 # 50mA
 
 DEFAULT_V_MIN_MV = -10.0
 DEFAULT_V_MAX_MV = 10.0
@@ -49,7 +49,7 @@ def plot_iv(csv_path: Path, output_png_path: Path, lo_freq: float = None):
     if lo_freq is not None:
         title_str += f"(LO: {lo_freq:.1f} GHz)"
 
-    ax.plot(bias_mv, current_ua, color="b", linewidth=1.5, marker="o", markersize=3, label="I-V Curve")
+    ax.plot(bias_mv, current_ua, color="r", linewidth=1.5, marker="o", markersize=3, label="I-V Curve")
     ax.axhline(0, color="black", linestyle="--", linewidth=0.8, alpha=0.7)
     ax.axvline(0, color="black", linestyle="--", linewidth=0.8, alpha=0.7)
     ax.set_title(f"{title_str}, data={timestamp_day}-{timestamp_time}", fontsize=15, fontweight="bold", pad=12)
